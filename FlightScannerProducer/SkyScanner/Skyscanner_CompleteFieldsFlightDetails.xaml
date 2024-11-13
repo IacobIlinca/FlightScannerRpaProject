@@ -1,0 +1,516 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Skyscanner_CompleteFieldsFlightDetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Origin" Type="InArgument(x:String)" />
+    <x:Property Name="in_Destination" Type="InArgument(x:String)" />
+    <x:Property Name="in_Flexible" Type="InArgument(x:String)" />
+    <x:Property Name="in_MonthDeparture" Type="InArgument(x:String)" />
+    <x:Property Name="in_MonthArrival" Type="InArgument(x:String)" />
+    <x:Property Name="in_DayDeparture" Type="InArgument(x:String)" />
+    <x:Property Name="in_DayArrival" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Skyscanner_CompleteFieldsFlightDetails.in_DayDeparture>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Skyscanner_CompleteFieldsFlightDetails.in_DayDeparture>
+  <this:Skyscanner_CompleteFieldsFlightDetails.in_DayArrival>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Skyscanner_CompleteFieldsFlightDetails.in_DayArrival>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>FlightScannerProducer.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>FlightScannerProducer.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="892.0000000000001,2657.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="636.8,336.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[in_Origin]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Cluj-Napoca</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[in_Destination]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Malmo</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[in_Flexible]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Yes</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[in_MonthDeparture]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">November</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[in_MonthArrival]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">December</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[in_DayDeparture]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">22</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[in_DayArrival]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">29</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Compare Cheap Flights &amp; Book Airline Tickets to Everywhere | Skyscanner" sap:VirtualizedContainerService.HintSize="636.8,2297.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="579.2,2057.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'From'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="545.6,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Text="[in_Origin]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="098fa2e4-fcf3-443d-a00e-3c511a237fe1" CvTextArea="214, 554, 204, 22" CvTextArgument="Country. city or airport" CvType="Text" DesignTimeRectangle="214, 550, 263, 26" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='From' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='From' type='text' class='AutoSuggest_input__ZjdlO' placeholder='Country, city or airport' /&gt;" Guid="aaa7d9c1-0a5d-47b3-b8aa-d43361ead379" InformativeScreenshot="5912a561cf845d5ca0d8f297ad80c1a5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="194, 506, 303, 90" ElementType="Text" FullSelectorArgument="&lt;webctrl id='originInput-label' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='originInput-label' tag='LABEL' type='' class='AutoSuggest_label__NWU0Y OriginSearchControlGroup_DesktopOriginLabel__NWQyZ' aaname='' check:innerText='From' /&gt;" Guid="42217859-0e44-4bf9-9664-2be10b90c18b" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="545.6,246.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+              <uix:NKeyboardShortcuts.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NKeyboardShortcuts.VerifyOptions>
+            </uix:NKeyboardShortcuts>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'To'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="545.6,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Text="[in_Destination]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="01e3d608-d77d-429c-8525-f3b6735d0d0f" CvTextArea="540, 554, 206, 22" CvTextArgument="Country. city or airport" CvType="Text" DesignTimeRectangle="542, 550, 242, 26" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='To' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='To' type='text' class='AutoSuggest_input__ZjdlO' placeholder='Country, city or airport' /&gt;" Guid="d8154c2f-594c-4ee3-a237-81764bdcc282" InformativeScreenshot="e912d0f433529b4eb300201c609b5ef9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="502, 506, 302, 90" ElementType="Text" FullSelectorArgument="&lt;webctrl id='destinationInput-label' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='destinationInput-label' tag='LABEL' type='' class='AutoSuggest_label__NWU0Y DestinationSearchControlGroup_DesktopDestinationLabelV2__YTgwM' aaname='' check:innerText='To' /&gt;" Guid="dd89f052-f639-4862-9273-496064715a0e" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="545.6,246.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+              <uix:NKeyboardShortcuts.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NKeyboardShortcuts.VerifyOptions>
+            </uix:NKeyboardShortcuts>
+            <If Condition="[in_Flexible.Equals(&quot;Yes&quot;)]" DisplayName="If flexible dates" sap:VirtualizedContainerService.HintSize="545.6,712" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="483.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Select departure month" sap:VirtualizedContainerService.HintSize="449.6,56.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add departure date'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="968cf0b6-b67d-4715-b493-62009d060cc6" CvTextArea="827, 274, 82, 17" CvTextArgument="Add date" CvType="Text" DesignTimeRectangle="829, 268, 220, 30" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Depart' tag='SPAN' /&gt;&lt;nav up='1' /&gt;&lt;webctrl aaname='Add date' parentid='app-root' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Add date' parentid='app-root' tag='SPAN' type='' class='BpkText_bpk-text__MjhhY BpkText_bpk-text--body-default__YzU1M SearchControlButton_placeholder__NmYzY' check:innerText='Add date' /&gt;" Guid="5bb12e97-3334-4bb2-9a40-a4e61ae06d3d" InformativeScreenshot="4dc5adf7d08c27be8abe0f4a6525bf5c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compare Cheap Flights &amp;amp; Book Airline Tickets to Everywhere | Skyscanner' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="809, 225, 260, 90" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-label='Select departure date' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Select departure date' tag='BUTTON' type='button' class='SearchControlButton_SearchControlBtn__YzUyO SearchControlButton_DesktopBtn__NzM1Z' aaname='DepartAdd date' check:innerText='Depart&amp;#xD;&amp;#xA;Add date' /&gt;" Guid="0e21bcbd-d187-4930-b64b-5ade97c72b76" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Flexible dates'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="22b3598f-c00d-4278-ac46-c301594bd6b6" CvElementArea="1035, 694, 159, 43" CvTextArea="1061, 709, 108, 15" CvTextArgument="Flexible dates" CvType="Button" DesignTimeRectangle="1062, 704, 107, 25" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aria-label='Select departure date' tag='BUTTON' aaname='DepartAdd date' /&gt;&lt;nav up='3' /&gt;&lt;webctrl tag='SPAN' innertext='Flexible dates' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='BpkText_bpk-text__MjhhY BpkText_bpk-text--footnote__OWIwY' parentid='app-root' tag='SPAN' aaname='' check:innerText='Flexible dates' /&gt;" Guid="7b9e4872-5d62-42c0-b0e4-bfa3d2f47d83" InformativeScreenshot="b0382e1582f0803d570ddef96b0e15d6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click departure month" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="0a2532db-4f65-4351-8080-f144e31978cf" CvElementArea="526, 718, 156, 171" CvType="Button" DesignTimeRectangle="530, 471, 151, 165" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aria-label='{0}*' tag='BUTTON' /&gt;&quot;, in_MonthDeparture)]" FuzzySelectorArgument="&lt;webctrl aria-label='November*' tag='BUTTON' type='button' class='MonthItem_item__ZThkN' aaname='2024November' check:text='2024November' /&gt;" Guid="9e661fa3-2e73-4bab-b115-0bae9678a5aa" InformativeScreenshot="b38cdcdd6a0450a2805aa84b67b5a1fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compare Cheap Flights &amp;amp; Book Airline Tickets to Everywhere | Skyscanner' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply'" sap:VirtualizedContainerService.HintSize="416,216.8" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="66436ec0-0f98-4962-a183-d3963ebc11f2" CvElementArea="1451, 900, 95, 64" CvTextArea="1471, 922, 53, 21" CvTextArgument="Apply" CvType="Button" DesignTimeRectangle="1454, 902, 90, 60" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Apply' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Apply' tag='BUTTON' type='button' class='BpkButton_bpk-button__OTE4Z BpkButton_bpk-button--large__NTAyN BpkButton_bpk-button--featured__NTk3N DatePickerFooter_SearchButton__N2ZiN' check:text='Apply' /&gt;" Guid="7416fce1-dba2-430a-a03c-9eec0c3b6e4f" InformativeScreenshot="7dee07dfd79ccc362194aaff16560e4c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                  </Sequence>
+                  <Sequence DisplayName="Select arrival month" sap:VirtualizedContainerService.HintSize="449.6,48" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add arrival date'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="3bdf3392-1d36-4839-89c8-457e31424de6" CvTextArea="1091, 274, 82, 17" CvTextArgument="Add date" CvType="Text" DesignTimeRectangle="1094, 268, 220, 30" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Return' tag='SPAN' /&gt;&lt;nav up='1' /&gt;&lt;webctrl aaname='Add date' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Add date' type='' parentid='app-root' tag='SPAN' class='BpkText_bpk-text__MjhhY BpkText_bpk-text--body-default__YzU1M SearchControlButton_placeholder__NmYzY' check:innerText='Add date' /&gt;" Guid="fa35b625-b8e1-4e3c-979b-a50491c6c0d9" InformativeScreenshot="5210b35e258a560bd92ca71d0fe320ea.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1074, 225, 260, 90" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-label='Add date. Or skip if you&amp;apos;re traveling one way.' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Add date. Or skip if you&amp;apos;re traveling one way.' tag='BUTTON' type='button' class='SearchControlButton_SearchControlBtn__YzUyO SearchControlButton_DesktopBtn__NzM1Z' aaname='ReturnAdd date' check:innerText='Return&amp;#xD;&amp;#xA;Add date' /&gt;" Guid="a2f7ddbd-89fd-4aff-8f98-e2c10b96ac92" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Flexible dates'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="c6ff8181-043f-4d15-9601-06da3c90cbd3" CvElementArea="1037, 348, 157, 43" CvTextArea="1061, 362, 108, 16" CvTextArgument="Flexible dates" CvType="Button" DesignTimeRectangle="1062, 359, 107, 21" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='BUTTON' aaname='ReturnAdd date' /&gt;&lt;nav up='3' /&gt;&lt;webctrl aaname='Flexible dates' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Flexible dates' parentid='app-root' tag='SPAN' type='' class='BpkText_bpk-text__MjhhY BpkText_bpk-text--footnote__OWIwY' check:innerText='Flexible dates' /&gt;" Guid="62ad543a-895d-4bbc-8d80-a9711de8ef00" InformativeScreenshot="13ba7c8f16a192ed230df00b7786bd18.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="c6ff8181-043f-4d15-9601-06da3c90cbd3" CvElementArea="1037, 348, 157, 43" CvTextArea="1061, 362, 108, 16" CvTextArgument="Flexible dates" CvType="Button" DesignTimeRectangle="1038, 350, 155, 40" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-label='Flexible dates' aria-role='radio' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Flexible dates' aria-role='radio' tag='BUTTON' type='button' class='BpkSelectableChip_bpk-chip__OWZlN BpkSelectableChip_bpk-chip--default__MDRlZ BpkSelectableChip_bpk-chip--default-selected__MzE4Y CalendarTab_chip__OWFiM CalendarTab_WholeMonthTab__OGMzY' aaname='Flexible dates' check:innerText='Flexible dates' /&gt;" Guid="00924380-fd74-40e4-a8f3-9b82be846749" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Arrival Month" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="d73e126f-c278-4dfa-8f32-2d9a54e009ee" CvElementArea="526, 497, 157, 169" CvType="Button" DesignTimeRectangle="530, 500, 151, 165" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aria-label='{0}*' tag='BUTTON' /&gt;&quot;, in_MonthArrival)]" FuzzySelectorArgument="&lt;webctrl aria-label='November 2024' tag='BUTTON' type='button' class='MonthItem_item__ZThkN' aaname='2024November' check:innerText='2024&amp;#xD;&amp;#xA;November' /&gt;" Guid="a4096d17-b821-43c9-9d81-86fe746022cf" InformativeScreenshot="dcba014a600816283835f11f6acc1ae7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compare Cheap Flights &amp;amp; Book Airline Tickets to Everywhere | Skyscanner' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="d73e126f-c278-4dfa-8f32-2d9a54e009ee" CvElementArea="526, 497, 157, 169" CvTextArea="562, 584, 86, 16" CvTextArgument="November" CvType="Button" DesignTimeRectangle="564, 580, 83, 25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='November' parentid='app-root' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='November' parentid='app-root' tag='SPAN' type='' class='BpkText_bpk-text__MjhhY BpkText_bpk-text--label-2__NzNlM MonthItem_month__ZThhN' check:innerText='November' /&gt;" Guid="f74402b6-57df-4775-8b73-2909dc6d641b" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply'" sap:VirtualizedContainerService.HintSize="416,216.8" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="1b6f57e8-eb0f-4661-a4cc-01a053165886" CvElementArea="1452, 929, 94, 65" CvTextArea="1471, 951, 55, 22" CvTextArgument="Apply" CvType="Button" DesignTimeRectangle="1454, 931, 90, 60" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Apply' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Apply' tag='BUTTON' type='button' class='BpkButton_bpk-button__OTE4Z BpkButton_bpk-button--large__NTAyN BpkButton_bpk-button--featured__NTk3N DatePickerFooter_SearchButton__N2ZiN' check:text='Apply' /&gt;" Guid="f2897b09-c674-4ceb-b62a-022aaf953244" InformativeScreenshot="3bda520b4c9d0f30314871701f1e9312.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                  </Sequence>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,376.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="searchUrl" />
+                    <Variable x:TypeArguments="x:String" Name="airportDeparture" />
+                    <Variable x:TypeArguments="x:String" Name="airportArrival" />
+                    <Variable x:TypeArguments="x:String" Name="constructedDepartureDate" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[airportDeparture]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[FlightScannerProducer.GlobalConfig.]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation Value="{x:Null}" sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[airportArrival]</OutArgument>
+                          </ui:AssignOperation.To>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation Value="{x:Null}" sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[constructedDepartureDate]</OutArgument>
+                          </ui:AssignOperation.To>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <Assign sap:VirtualizedContainerService.HintSize="478.4,104.8" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[searchUrl]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[String.Format("https://www.skyscanner.com/transport/flights/{0}/{1}/{2}/{3}", airportDeparture)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="545.6,218.4" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2703089f-c3fa-4e74-83c3-3256765d9292" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.skyscanner.com/" CVScreenId="3ddc9fb1-09a2-4a52-95a3-91a3485ac1f9" CvElementArea="1616, 225, 110, 90" CvTextArea="1636, 260, 68, 18" CvTextArgument="Search" CvType="Button" DesignTimeRectangle="1619, 225, 105, 90" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Search' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Search' tag='BUTTON' type='button' class='BpkButton_bpk-button__OTE4Z BpkButton_bpk-button--large__NTAyN BpkButton_bpk-button--featured__NTk3N SearchControls_DesktopCTA__ZGI4N' check:text='Search' /&gt;" Guid="02440dc6-f156-432f-abfd-2a523d279494" InformativeScreenshot="33d47121438c2d2083c84571f579ec2a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAF7SURBVDhPrVM9S8NQFH2FkhYVf4Cb/0F0dPYnuIggShXb2lYEJ3FxqB8UBCcL4u4kIoqKi624OLi3TVMlcai0RsXpeM9Lqq1asWjgwMm559zc3JeocMIqhBNONRy3OoOXKahQ3HRDCw8IpZzOwEzMdDlBVQtzVmeQDCf5toEhEB1qpqxBTq3Z07aBEZdgxERguoyhVVuDnBprPzYIRMvona8gm3dhRC1snj9qkFNjjZ62DbqT8vTxEvZvXpCR4MpRTYOcGmv0fGlgyI2SMXevnrBz6WJQxs5euBhI2xrk1Fijh15mWiYIymh9i7fYzrlIn9ShRotQYyUPwqmxRg+9ra+QdNAlm+5fusPI1j2WD2vYOKtj/dQDOTXW6KGXmfcGgVkbwxkH+eIr9q6fsXZcw4G8c+Mip8YaPfQy87ED6daTqnhLnDKhJmTsSVMbCXKtSY0eeplp2QHPOBjzN+xDRXj+/rH5oEd/D5+X2Gz6FRoN/uNn+sPvbBXeAFBBfo2ZYd31AAAAAElFTkSuQmCC" InformativeScreenshot="93d4a0f6d5c1d31ab1a279e60dc06e79.jpg" Selector="&lt;html app='chrome.exe' url='https://www.skyscanner.com*' /&gt;" Title="Compare Cheap Flights &amp; Book Airline Tickets to Everywhere | Skyscanner" Url="https://www.skyscanner.com/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
